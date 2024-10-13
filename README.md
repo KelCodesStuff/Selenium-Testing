@@ -1,6 +1,6 @@
 # Selenium Testing Project
 
-This project contains automated tests for navigating and interacting with the Apple website using Selenium, PyTest, and Selenoid for browser automation. The tests are configured to run on both **Chrome** and **Firefox** browsers. Aqua IDE is used for development.
+This project contains automated tests for navigating and interacting with websites using Selenium, PyTest, and Selenoid for browser automation. The tests are configured to run on both **Chrome** and **Firefox** browsers. Aqua IDE is used for development.
 
 ## Table of Contents
 - [Technologies](#technologies)
