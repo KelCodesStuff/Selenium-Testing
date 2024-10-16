@@ -37,5 +37,5 @@ This project contains automated tests for navigating and interacting with websit
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/selenium-testing.git
+   git clone https://github.com/KelCodesStuff/Selenium-Testing.git
    cd selenium-testing
