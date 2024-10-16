@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-class TestAppleStoreItem:
+class TestPlaystationStoreItem:
     # 1. Check browser configuration in browser_setup_and_teardown
     # 2. Run 'Selenium Tests' configuration
     # 3. Test report will be created in reports/ directory
@@ -43,7 +43,7 @@ class TestAppleStoreItem:
 
         self.browser.maximize_window()
         self.browser.implicitly_wait(10)
-        self.browser.get("https://www.apple.com/")
+        self.browser.get("https://direct.playstation.com/en-us")
 
         yield
 
@@ -51,7 +51,7 @@ class TestAppleStoreItem:
         """Fixture to set up and teardown browser with optional headless and Selenoid mode"""
 
     def navigate_to_store(self):
-        """Helper function to navigate to the Apple Store page"""
+        """Helper function to navigate to the PlayStation Store page"""
         try:
             store_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Store"))
@@ -59,9 +59,40 @@ class TestAppleStoreItem:
             store_menu.click()
             assert "Store" in self.browser.title
         except TimeoutException:
-            pytest.fail("Failed to navigate to Apple Store")
+            pytest.fail("Failed to navigate to PlayStation Direct Store")
 
-    def test_macbook_pro_description(self):
+    def test_playstation5_pro_description(self):
+        """Test to verify product description"""
+        self.navigate_to_store()
+
+        # Directly navigate to the item page
+        self.browser.get("https://www.apple.com/shop/buy-mac")
+
+        # Wait for the page to load and locate the 'Buy' button for the MacBook Pro
+        buy_button = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "a[data-autom='MBP_M3_MAIN']")),
+            message="Buy button for MacBook Pro not found"
+        )
+        buy_button.click()
+
+        # Locate the 'M3 Max' button for the MacBook Pro
+        model_button = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.ID, "tab-:rb:-3")),
+            message="Model button for M3 Max not found"
+        )
+        model_button.click()
+
+        # Verify the item description
+        item_description = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.ID, "productbundle-title-14inch-supreme")),
+            message="Item description for MacBook Pro M3 Max not found"
+        )
+
+        # Verify the description text matches expected value
+        assert "MacBook Pro M3 Max" in item_description.text, "The MacBook Pro M3 Max description does not match"
+
+
+    def test_dualsense_description(self):
         """Test to verify product description"""
         self.navigate_to_store()
 
@@ -91,38 +122,7 @@ class TestAppleStoreItem:
         # Verify the description text matches expected value
         assert "MacBook Pro M3 Max" in item_description.text, "The MacBook Pro M3 Max description does not match"
 
-
-    def test_ipad_pro_description(self):
-        """Test to verify product description"""
-        self.navigate_to_store()
-
-        # Directly navigate to the product page (Shop Mac)
-        self.browser.get("https://www.apple.com/shop/buy-mac")
-
-        # Wait for the page to load and locate the 'Buy' button for the MacBook Pro
-        buy_button = WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "a[data-autom='MBP_M3_MAIN']")),
-            message="Buy button for MacBook Pro not found"
-        )
-        buy_button.click()
-
-        # Locate the 'M3 Max' button for the MacBook Pro
-        model_button = WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable((By.ID, "tab-:rb:-3")),
-            message="Model button for M3 Max not found"
-        )
-        model_button.click()
-
-        # Verify the item description
-        item_description = WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((By.ID, "productbundle-title-14inch-supreme")),
-            message="Item description for MacBook Pro M3 Max not found"
-        )
-
-        # Verify the description text matches expected value
-        assert "MacBook Pro M3 Max" in item_description.text, "The MacBook Pro M3 Max description does not match"
-
-    def test_iphone_pro_description(self):
+    def test_playstation_portal_description(self):
         """Test to verify product description"""
         self.navigate_to_store()
 

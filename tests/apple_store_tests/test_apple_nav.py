@@ -51,7 +51,7 @@ class TestAppleStoreNavigation:
         """Fixture to set up and teardown browser with optional headless and Selenoid mode"""
 
     def test_store_navigation(self):
-        """This test navigates to the Store page and verifies the page loaded"""
+        """This test navigates to the Apple Store page and verifies the page loaded"""
         try:
             store_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Store"))
@@ -64,7 +64,7 @@ class TestAppleStoreNavigation:
             pytest.fail("Store menu item not found or click failed")
 
     def test_mac_menu(self):
-        """This test checks presence of Mac menu item and clicks it"""
+        """This test checks presence of the Mac menu button and clicks it"""
         try:
             mac_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Mac"))
@@ -77,7 +77,7 @@ class TestAppleStoreNavigation:
             pytest.fail("Mac menu item not found or click failed")
 
     def test_ipad_menu(self):
-        """This test checks presence of iPhone menu item and clicks it"""
+        """This test checks presence of the iPad menu button and clicks it"""
         try:
             iphone_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "iPad"))
@@ -90,7 +90,7 @@ class TestAppleStoreNavigation:
             pytest.fail("iPad menu item not found or click failed")
 
     def test_iphone_menu(self):
-        """This test checks presence of iPhone menu item and clicks it"""
+        """This test checks presence of the iPhone menu button and clicks it"""
         try:
             iphone_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "iPhone"))
