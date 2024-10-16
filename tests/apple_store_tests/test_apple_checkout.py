@@ -59,7 +59,7 @@ class TestAppleStoreCheckout:
             store_menu.click()
             assert "Store" in self.browser.title
         except TimeoutException:
-            pytest.fail("Failed to navigate to Store")
+            pytest.fail("Failed to navigate to Apple Store")
 
     def test_add_item_to_cart(self):
         """Test to add a product to the cart"""

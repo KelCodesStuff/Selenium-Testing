@@ -10,9 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
 class TestAppleStoreItem:
-# 1. Check browser configuration in browser_setup_and_teardown
-# 2. Run 'Selenium Tests' configuration
-# 3. Test report will be created in reports/ directory
+    # 1. Check browser configuration in browser_setup_and_teardown
+    # 2. Run 'Selenium Tests' configuration
+    # 3. Test report will be created in reports/ directory
 
     @pytest.fixture(autouse=True)
     def browser_setup_and_teardown(self, headless=True, use_selenoid=False):
@@ -51,7 +51,7 @@ class TestAppleStoreItem:
         """Fixture to set up and teardown browser with optional headless and Selenoid mode"""
 
     def navigate_to_store(self):
-        """Helper function to navigate to the Store page"""
+        """Helper function to navigate to the Apple Store page"""
         try:
             store_menu = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Store"))
@@ -59,7 +59,7 @@ class TestAppleStoreItem:
             store_menu.click()
             assert "Store" in self.browser.title
         except TimeoutException:
-            pytest.fail("Failed to navigate to Store")
+            pytest.fail("Failed to navigate to Apple Store")
 
     def test_macbook_pro_description(self):
         """Test to verify product description"""
