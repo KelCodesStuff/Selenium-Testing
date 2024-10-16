@@ -1,14 +1,14 @@
 # Selenium Testing Project
 
-This project contains automated tests for navigating and interacting with websites using Selenium, PyTest, and Selenoid for browser automation. The tests are configured to run on both **Chrome** and **Firefox** browsers. Aqua IDE is used for development.
+This project provides a robust automation testing framework using Selenium and PyTest to perform end-to-end testing. It focuses on testing various aspects of the websites, including the checkout process, performance, and load testing. The tests are configured to run on both **Chrome** and **Firefox** browsers. Aqua IDE is used for development.
 
-## Table of Contents
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Running Tests](#running-tests)
-- [Headless Mode](#headless-mode)
-- [Selenoid Configuration](#selenoid-configuration)
-- [Aqua IDE](#aqua-ide)
+## Key Features
+- Automated Testing: Perform seamless navigation and testing of the Apple website, including automating the process of clicking the Buy button for a MacBook Pro.
+- PyTest Framework: Efficient and scalable test structure utilizing fixtures for browser setup.
+- Continuous Integration: Integrated with CircleCI for automated testing workflows.
+- Performance and Load Testing: Automated performance and load testing with Locust.
+- Custom Fixtures: Reusable test setup and teardown using Selenium WebDriver fixtures.
+- Cross-Browser Testing: Expandable for testing on multiple browsers.
 
 ## Technologies
 
