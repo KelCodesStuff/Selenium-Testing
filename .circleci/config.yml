@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: circleci/python:3.9  # Use an official Python image
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y chromium-chromedriver
+            pip install selenium pytest
+      - run:
+          name: Run Tests
+          command: pytest --maxfail=1 --disable-warnings -v --junitxml=reports/results.xml
+
+      - store_test_results:
+          path: reports  # Save test results
+      - store_artifacts:
+          path: reports  # Save artifacts for review
+
+workflows:
+  version: 2
+  test_workflow:
+    jobs:
+      - test
