@@ -1,8 +1,8 @@
-# Selenium Testing Project
+# Selenium Testing
 
 This project provides a robust automation testing framework using Selenium and PyTest to perform end-to-end testing. It focuses on testing various aspects of the websites, including the checkout process, performance, and load testing. The tests are configured to run on both **Chrome** and **Firefox** browsers. Aqua IDE is used for development.
 
-## Key Features
+## Overview
 - Automated Testing: Perform seamless navigation and testing of the Apple website, including automating the process of clicking the Buy button for a MacBook Pro.
 - PyTest Framework: Efficient and scalable test structure utilizing fixtures for browser setup.
 - Continuous Integration: Integrated with CircleCI for automated testing workflows.
@@ -33,9 +33,4 @@ This project provides a robust automation testing framework using Selenium and P
 3. **Aqua IDE** for development.
 4. **Chrome and Firefox** installed on your system for local testing.
 
-### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/KelCodesStuff/Selenium-Testing.git
-   cd selenium-testing
